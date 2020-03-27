@@ -15,7 +15,7 @@ class DieTestfalse {
 		Die die = new Die();
 		for (int i = 0; i < rolls; i++) {
 			die.roll();
-			num = die.getLastRoll();
+			num = die.getDieLastRoll();
 			
 			assertFalse(num < 0);
 			assertFalse(num > 7);

@@ -13,7 +13,7 @@ class DieTest {
 		Die die = new Die();
 		for (int i = 0; i < rolls; i++) {
 			die.roll();
-			num = die.getLastRoll();
+			num = die.getDieLastRoll();
 			
 			assertTrue(num > 0);
 			assertTrue(num < 7);

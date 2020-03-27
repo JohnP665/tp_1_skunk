@@ -1,11 +1,13 @@
-
-import edu.princeton.cs.introcs.*;
+//implement SkunkApp with starting main() and other classes so that this app 
+//plays a complete interactive Turn of Skunk with one human Player.
 
 public class SkunkApp {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		StdOut.print("\nTP_1 Project");
-	}
+	static int numPlayers = 0;
 
+	public static void main(String[] args) {
+		
+		Player SkunkGame = new Player();
+		SkunkGame.player();
+	}
 }

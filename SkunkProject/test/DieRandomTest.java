@@ -20,7 +20,7 @@ public class DieRandomTest
 		{
 			die.roll();
 			
-			dieface = die.getLastRoll();
+			dieface = die.getDieLastRoll();
 			StdOut.println((i+1) + "- " + "Die: " + dieface );
 			switch(dieface) {
 			case 1: one++; break;

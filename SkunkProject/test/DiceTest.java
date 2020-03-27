@@ -11,7 +11,7 @@ class DiceTest {
 	{
 		Dice dice = new Dice();
 		for (int i = 0; i < rolls; i++) {
-			dice.roll();
+	//		dice.roll();
 			
 			num = dice.getLastRoll();
 					assertTrue(num > 1);
