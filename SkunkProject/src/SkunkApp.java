@@ -6,7 +6,7 @@ public class SkunkApp {
 	static int numPlayers = 0;
 
 	public static void main(String[] args) {
-		
+		// Create player object to start the game
 		Player SkunkGame = new Player();
 		SkunkGame.player();
 	}
