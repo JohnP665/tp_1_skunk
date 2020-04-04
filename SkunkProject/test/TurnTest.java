@@ -36,4 +36,17 @@ class TurnTest {
 				assertFalse(looseTurn);
 		}				
 	}
+	
+	@Test
+	void ResetTunrTest() {
+		for (int i = 0; i < 1000; i++) {
+			Roll roll1 = new Roll();
+			
+			if (roll1.getTurnScore() > 0) 
+			{
+				roll1.resetTurnScore();
+				assertTrue(roll1.getTurnScore() == 0);
+			}
+		}
+	}
 }
