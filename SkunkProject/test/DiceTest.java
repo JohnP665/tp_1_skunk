@@ -18,6 +18,20 @@ class DiceTest {
 					assertTrue(num < 13);
 			}
 	}
+	
+	@Test
+	public void dice_roll_will_not_be_less_than_2_and_greater_than_thirteen()
+	{
+		Dice dice = new Dice();
+		for (int i = 0; i < rolls; i++) {
+//			dice.roll();
+			
+			num = dice.getLastRoll();
+					assertFalse(num < 2);
+					assertFalse(num > 13);
+			}
+	}
+
 
 }
 

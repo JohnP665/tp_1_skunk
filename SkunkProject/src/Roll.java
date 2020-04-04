@@ -46,9 +46,10 @@ public class Roll {
 			TotalCHIP[playerNum] -= playerChipCountLooseInThisRoll;
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
 			Gamescore[playerNum] = 0;
-			StdOut.println("\t***** You rolled a double skunk loose all scores for the game!!! ****");
-			StdOut.println("\t***** and you loose 4 chips this Turn !!! *****");
-			StdOut.println("\t***** and you loose your turn and all GameScore !!! *****");
+			doubleSkunkMsg();
+//			StdOut.println("\t***** You rolled a double skunk loose all scores for the game!!! ****");
+//			StdOut.println("\t***** and you loose 4 chips this Turn !!! *****");
+//			StdOut.println("\t***** and you loose your turn and all GameScore !!! *****");
 			loseTurn = true;
 			resetTurn = true;
 			throwNumer = 0;
@@ -62,9 +63,10 @@ public class Roll {
 			KittyChipCount += 2;
 			TotalCHIP[playerNum] -= playerChipCountLooseInThisRoll;
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
-			StdOut.println("\t***** You rolled a skunk deuce!! *****");
-			StdOut.println("\t***** and you loose 2 chips this Turn !!! *****");
-			StdOut.println("\t***** and you loose your turn and all TurnScore !!! *****");
+			deuceMsg();
+//			StdOut.println("\t***** You rolled a skunk deuce!! *****");
+//			StdOut.println("\t***** and you loose 2 chips this Turn !!! *****");
+//			StdOut.println("\t***** and you loose your turn and all TurnScore !!! *****");
 			loseTurn = true;
 			resetTurn = true;
 			throwNumer = 0;
@@ -76,8 +78,9 @@ public class Roll {
 			KittyChipCount += 1;
 			TotalCHIP[playerNum] -= playerChipCountLooseInThisRoll;
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
-			StdOut.println("\t***** You rolled a skunk!! *****");
-			StdOut.println("\t***** and you loose your turn and 1 chips this Turn !!! *****");
+			SkunkMsg();
+//			StdOut.println("\t***** You rolled a skunk!! *****");
+//			StdOut.println("\t***** and you loose your turn and 1 chips this Turn !!! *****");
 			loseTurn = true;
 			resetTurn = false;
 			throwNumer = 0;
@@ -114,6 +117,23 @@ public class Roll {
 		return rollScore;
 	} // End public int throwDice(int playerNum)
 
+	public void doubleSkunkMsg() {
+		StdOut.println("\t***** You rolled a double skunk loose all scores for the game!!! ****");
+		StdOut.println("\t***** and you loose 4 chips this Turn !!! *****");
+		StdOut.println("\t***** and you loose your turn and all GameScore !!! *****");
+	}
+	
+	public void deuceMsg() {
+		StdOut.println("\t***** You rolled a skunk deuce!! *****");
+		StdOut.println("\t***** and you loose 2 chips this Turn !!! *****");
+		StdOut.println("\t***** and you loose your turn and all TurnScore !!! *****");
+	}
+	
+	public void SkunkMsg() {
+		StdOut.println("\t***** You rolled a skunk!!! *****");
+		StdOut.println("\t***** and you loose your turn and 1 chips this Turn !!! *****");
+	}
+	
 	public boolean playerLosesTurn() {
 		return this.loseTurn;
 	}

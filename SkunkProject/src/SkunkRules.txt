@@ -1,0 +1,23 @@
+			
+	Player(s) should be familiar with these Skunk Rules:
+
+•	Player(s) using two six-sided dice.
+•	Skunk player(s) scores points by rolling both dice at once and adding the total of the two.  
+•	Player(s) can choose to stop at the end of any roll and keep their accumulated points or try to roll again for even more points, 
+	but be cautious! Chips may be paid for penalty and game score may be reset if Skunks dice encountered!
+•	Each player has 50 chips to start. 
+•	Any face value = 1 (Skunk) in a roll, player will loose turn
+•	If roll score = 2 (double Skunks), player lost all game score, pays 4 penalty chips
+•	If roll score = 3 (deuce, i.e., single skunk and a two), player lost all turn score, but not game score, and pays 2 penalty chips
+•	If roll score >= 4 with a single skunk included, player lost last roll score, and pays 1 penalty chip
+•	All penalty chips will be kept track in kitty box
+•	Score and chips are displayed after each turn
+•	All players' Score and "kitty chip" up-to-date status are also displayed after each turn. 
+•	Any player reaches 100 points will win the game, after that, other players have a choice to get one more last turn to roll
+•	The winner of each game collects all chips in "kitty". If there are more than one winner, then all winners will share the kitty chips. 
+•	In addition, winner can collect 5 chips from each losing player or 10 chips from any player without a score.
+•	The game final-report will display the winner, looser , score and chips of each player and total bonus for winner(s)
+
+				GOOD LUCK and HAVE FUN!
+
+Now Enter the Number of Players
