@@ -1,11 +1,10 @@
 
-
 public class Messages {
 	
 	public String Tab3Mesg = "\t\t\t";
 	public String Message_has = " has ";
-	public String AskUserInput = "How many players? (between 1 & 5) ";
-	public String InputBound = "Maximum is 5, Minimum is 1\n";
+	public String AskUserInput = "How many players? ";
+	public String InputBound = "Maximum is 5, Minimum is 2\n";
 	public String AskUserStartRoll =  ", Do you want to roll ? [y or n] ";
 	public String Ask_User = "\nroll again? [y or n] ";
     public String Re_Enter = "[y/n] only! Re-enter ";
@@ -43,11 +42,9 @@ public class Messages {
     public String TurnReport1 = "'s score for this Roll: ";
     public String TurnReport2 = "'s score for this Turn: "; 
     public String TurnReport3 = "'s score for this Game: ";
-    public String TurnReport4 = "==>> Total turn score: ";
+    public String TurnReport4 = "'s Total turn score: ";
     public String TurnReport5 = "'s Total Penalty Chips: ";
-    public String GameReport1 = "==>> Total game score is: ";
+    public String GameReport1 = "'s Total game score is: ";
     public String GameReport2 = "'s Total game score: ";
-    
-
+   
 }
-

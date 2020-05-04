@@ -1,4 +1,5 @@
 
+
 import edu.princeton.cs.introcs.StdOut;
 
 public class Roll {
@@ -47,9 +48,6 @@ public class Roll {
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
 			Gamescore[playerNum] = 0;
 			doubleSkunkMsg();
-//			StdOut.println("\t***** You rolled a double skunk loose all scores for the game!!! ****");
-//			StdOut.println("\t***** and you loose 4 chips this Turn !!! *****");
-//			StdOut.println("\t***** and you loose your turn and all GameScore !!! *****");
 			loseTurn = true;
 			resetTurn = true;
 			throwNumer = 0;
@@ -64,9 +62,6 @@ public class Roll {
 			TotalCHIP[playerNum] -= playerChipCountLooseInThisRoll;
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
 			deuceMsg();
-//			StdOut.println("\t***** You rolled a skunk deuce!! *****");
-//			StdOut.println("\t***** and you loose 2 chips this Turn !!! *****");
-//			StdOut.println("\t***** and you loose your turn and all TurnScore !!! *****");
 			loseTurn = true;
 			resetTurn = true;
 			throwNumer = 0;
@@ -74,15 +69,14 @@ public class Roll {
 		// Skunk rolled
 		else if ((newDice.getLastRoll() > 3) && (newDice.die1GetLastRoll() == 1 || newDice.die2GetLastRoll() == 1)) {
 			rollScore = 0;
+			turnScore = 0;
 			playerChipCountLooseInThisRoll = 1;
 			KittyChipCount += 1;
 			TotalCHIP[playerNum] -= playerChipCountLooseInThisRoll;
 			penaltyCHIP[playerNum] += playerChipCountLooseInThisRoll;
 			SkunkMsg();
-//			StdOut.println("\t***** You rolled a skunk!! *****");
-//			StdOut.println("\t***** and you loose your turn and 1 chips this Turn !!! *****");
 			loseTurn = true;
-			resetTurn = false;
+			resetTurn = true;
 			throwNumer = 0;
 		}
 		// Good roll
@@ -131,7 +125,8 @@ public class Roll {
 	
 	public void SkunkMsg() {
 		StdOut.println("\t***** You rolled a skunk!!! *****");
-		StdOut.println("\t***** and you loose your turn and 1 chips this Turn !!! *****");
+		StdOut.println("\t***** and you loose 1 chips this Turn !!! *****");
+		StdOut.println("\t***** and you loose your turn and all TurnScore !!! *****");
 	}
 	
 	public boolean playerLosesTurn() {
@@ -182,5 +177,4 @@ public class Roll {
 		return KittyChipCount;
 	}
 }
-
 

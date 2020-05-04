@@ -1,7 +1,7 @@
 
 import java.util.Arrays;
-import edu.princeton.cs.introcs.StdOut;
 import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.introcs.StdOut;
 
 public class Turn {
 	final int TURNLIMIT = 10;
@@ -40,15 +40,16 @@ public class Turn {
 			/*
 			 * print score
 			 */
-			StdOut.println("\n\t<<<<< Turn Summary for " + plyr.namePlayers[j] + " >>>>>");
-			StdOut.println("\n" + plyr.namePlayers[j] + MSG.LastTurnScore + lastTurnScore);
-			StdOut.println(plyr.namePlayers[j] + MSG.GameReport1 + roll.getGameScore(j));
-			StdOut.println(plyr.namePlayers[j] + MSG.FinalRollMesg5 + roll.updateChipCount(j));
-			StdOut.println(MSG.CurrentKitty + roll.getKittyChipCounts());
+//			StdOut.println("\n\t<<<<< Turn Summary for " + plyr.namePlayers[j] + " >>>>>");
+//			StdOut.println("\n" + plyr.namePlayers[j] + MSG.LastTurnScore + lastTurnScore);
+//			StdOut.println(plyr.namePlayers[j] + MSG.GameReport1 + roll.getGameScore(j));
+//			StdOut.println(plyr.namePlayers[j] + MSG.FinalRollMesg5 + roll.updateChipCount(j));
+//			StdOut.println(MSG.CurrentKitty + roll.getKittyChipCounts());
 			StdOut.println("\n\n\t<<<<< UptoDate Game Score for all Players >>>>>\n");
 			for (int i = 0; i<plyr.getPlayernumber(); i++ ) {
 				StdOut.println(plyr.namePlayers[i] + MSG.GameReport2 + roll.getGameScore(i));
 			}
+			StdOut.println(MSG.CurrentKitty + roll.getKittyChipCounts());
 
 			roll.resetTurnScore();
 			rollNumber = 0;
@@ -192,23 +193,25 @@ public class Turn {
 				if (roll.playerLosesTurn() == true) {
 
 					if (roll.getRollScore() == 2) {
-						roll.resetGameScore(PlayerNum);
+	//					roll.resetGameScore(PlayerNum);
+	//					roll.resetTurnScore();
 						rolNum = 0;
 						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
 					} else if (roll.getRollScore() == 3) {
 						rolNum = 0;
 						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
-					} else if ((roll.getRollScore() > 3) && (roll.getDie1Score() == 1 || roll.getDie2Score() == 1)) {
+					} else if ((roll.getDie1Score() == 1 || roll.getDie2Score() == 1)) {
 						rolNum = 0;
+//						roll.resetTurnScore();
 						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
 					}
 					break;
 				} else {
-					StdOut.println(MSG.ThrowDisp + rolNum);
+					StdOut.println(MSG.ThrowDisp + (rolNum+1));
 					PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
 					rollTurn[rolNum] = roll.getRollScore();
 					rolNum++;
-					if (rolNum > 9) // preventing out of bound
+					if (rolNum > (TURNLIMIT - 1)) // preventing out of bound
 						rolNum = 0;
 					tempTotalGamescore = roll.getGameScore(PlayerNum);
 					if (tempTotalGamescore >= MAXSCORE) {
@@ -223,13 +226,6 @@ public class Turn {
 			}
 
 		} // End while (true)
-		/*
-		 * print score
-		 */
-		lastTurnScore = roll.getTurnScore();
-		StdOut.print(Arrays.toString(roll.thisTurnScore) + " ");
-		StdOut.println(MSG.TurnReport4 + lastTurnScore);
-		StdOut.println(playerName + MSG.TurnReport5 + roll.getPlayerPenaltyChipCounts(PlayerNum));
 
 	}//End public void playerTurn(int PlayerNum, String playerName, int rolNum)
 		    
@@ -252,8 +248,18 @@ public class Turn {
 	}		
 	
 	public void PrintReport(int tempTotalScore, int playerNum, String playerName, Roll thisroll) {	
+		int TurnScore = thisroll.getTurnScore();
+
 		StdOut.println("\n" + playerName + MSG.TurnReport1 + thisroll.getRollScore());
-		StdOut.println(playerName + MSG.TurnReport2 + thisroll.getTurnScore());
+//		StdOut.println(playerName + MSG.TurnReport2 + thisroll.getTurnScore());
+		if ((thisroll.getDie1Score() == 1 || thisroll.getDie2Score() == 1)) {
+			StdOut.println(playerName + MSG.TurnReport2 + TurnScore);
+		}
+		else {			
+			StdOut.print(playerName + MSG.TurnReport4 + TurnScore + " ==> ");
+			StdOut.print(Arrays.toString(thisroll.thisTurnScore) + "\n");
+		}
+
 		StdOut.println(playerName + MSG.TurnReport3 + thisroll.getGameScore(playerNum));
 		tempTotalScore = thisroll.getGameScore(playerNum);	
 	}
@@ -267,105 +273,3 @@ public class Turn {
 	}
 }
 
-
-
-//import java.util.Arrays;
-//import edu.princeton.cs.introcs.StdOut;
-//import edu.princeton.cs.introcs.StdIn;
-//
-//public class Turn {
-//	final int TURNLIMIT = 10;
-//	final public int MAXSCORE = 100;
-//	int[] rollTurn = new int[TURNLIMIT];
-//	int lastTurnScore = 0;
-//	private String continueToRoll = null;
-//	Messages MSG = new Messages();
-//	
-//	public Turn() {
-//		
-//	}
-//	
-//	public void playerTurn(int PlayerNum, String playerName, int rolNum) {
-//				
-//		Roll roll = new Roll();
-//		int tempTotalGamescore = 0;
-//
-//		while (true) {
-//			do { 
-//				try {
-//					setChoice(StdIn.readString().toLowerCase());
-//					if(getChoice().equals("y") || getChoice().equals("n"))
-//						break;
-//					else StdOut.println(MSG.Re_Enter);
-//			    }
-//				catch (Exception e) {
-//	                System.out.println(MSG.InputMismatch);			 
-//	            }	
-//			}while(!getChoice().equals("y") || !getChoice().equals("n"));	
-//
-//			if (getChoice().equals("y")) {
-//
-//				StdOut.println("\n" + Player.getPlayer(playerName) + " is rolling ...");
-//				StdOut.println("\n");
-//				roll.throwDice(PlayerNum);
-//
-//				StdOut.println("\nDie1: " + roll.getDie1Score() + "   Die2: " + roll.getDie2Score());
-//				if (roll.playerLosesTurn() == true) {
-//
-//					if (roll.getRollScore() == 2) {
-//						roll.resetGameScore(PlayerNum);
-//						rolNum = 0;
-//						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
-//					} else if (roll.getRollScore() == 3) {
-//						rolNum = 0;
-//						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
-//					} else if ((roll.getRollScore() > 3) && (roll.getDie1Score() == 1 || roll.getDie2Score() == 1)) {
-//						rolNum = 0;
-//						PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
-//					}
-//					break;
-//				} else {
-//					StdOut.println(MSG.ThrowDisp + rolNum);
-//					PrintReport(tempTotalGamescore, PlayerNum, playerName, roll);
-//					rollTurn[rolNum] = roll.getRollScore();
-//					rolNum++;
-//					if (rolNum > 9) // preventing out of bound
-//						rolNum = 0;
-//					tempTotalGamescore = roll.getGameScore(PlayerNum);
-//					if (tempTotalGamescore >= MAXSCORE) {
-//						break;
-//					} else
-//						StdOut.print(MSG.Ask_User);
-//				}
-//			} 
-//			else if (getChoice().equals("n")) {
-//				rolNum = 0;
-//				break;
-//			}
-//
-//		} // End while (true)
-//		/*
-//		 * print score
-//		 */
-//		lastTurnScore = roll.getTurnScore();
-//		StdOut.print(Arrays.toString(roll.thisTurnScore) + " ");
-//		StdOut.println(MSG.TurnReport4 + lastTurnScore);
-//		StdOut.println(playerName + MSG.TurnReport5 + roll.getPlayerPenaltyChipCounts(PlayerNum));
-//
-//	}
-//		    
-//	public void PrintReport(int tempTotalScore, int playerNum, String playerName, Roll thisroll) {	
-//		StdOut.println("\n" + playerName + MSG.TurnReport1 + thisroll.getRollScore());
-//		StdOut.println(playerName + MSG.TurnReport2 + thisroll.getTurnScore());
-//		StdOut.println(playerName + MSG.TurnReport3 + thisroll.getGameScore(playerNum));
-//		tempTotalScore = thisroll.getGameScore(playerNum);	
-//	}
-//	
-//	public void setChoice(String choice) {
-//		continueToRoll = choice;
-//	}
-//	
-//	public String getChoice() {
-//		return continueToRoll;
-//	}
-//}
