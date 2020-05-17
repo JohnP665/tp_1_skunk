@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class ResetTurnScoreTest {
 
 	@Test
-	void test() {
+	public void test() {
 		for (int i = 0; i < 1000; i++) {
 			Roll roll1 = new Roll();
 			

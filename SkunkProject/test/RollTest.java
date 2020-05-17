@@ -7,7 +7,7 @@ import edu.princeton.cs.introcs.StdOut;
 class RollTest {
 
 	@Test
-	void Rollingtest() {
+	public void Rollingtest() {
 	
 		Roll roll1 = new Roll();
 	    int kittychip = 0;	
