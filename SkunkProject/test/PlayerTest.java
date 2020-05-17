@@ -1,6 +1,10 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
+
 import edu.princeton.cs.introcs.StdOut;
+
 
 class PlayerTest {
 
@@ -9,7 +13,7 @@ class PlayerTest {
 	String pName;
 	
 	@Test
-	void PlayerNumTest() {
+	public void PlayerNumTest() {
 		Player player = new Player();
 		player.setPlayernumber(NumPlayer);
 		int expectedplayerNum = player.getPlayernumber();
@@ -18,7 +22,7 @@ class PlayerTest {
 	}
 		
 	@Test
-	void PlayerNameTest() {
+	public void PlayerNameTest() {
 		Player player = new Player();
 		pName = playerName[0];
 		player.setPlayer(0, pName);

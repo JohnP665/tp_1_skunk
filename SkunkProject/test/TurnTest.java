@@ -7,7 +7,7 @@ class TurnTest {
 	String Option;
 	boolean looseTurn = false;
 	@Test
-	void LostTurnIfAnyFaceValueIsOne_test() {
+	public void LostTurnIfAnyFaceValueIsOne_test() {
 		Turn turn = new Turn();
 		turn.setChoice("y");
 		Option = turn.getChoice();
@@ -38,7 +38,7 @@ class TurnTest {
 	}
 	
 	@Test
-	void ResetTunrTest() {
+	public void ResetTunrTest() {
 		for (int i = 0; i < 1000; i++) {
 			Roll roll1 = new Roll();
 			

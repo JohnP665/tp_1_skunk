@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
+import edu.princeton.cs.introcs.StdOut;
 
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,19 @@ class DiceTest {
 					assertFalse(num > 13);
 			}
 	}
+	
+	@Test	
+	public void test_tostring () {
+		int last = 0;
+		
+		Die die1 = new Die();
+		last = die1.getDieLastRoll();
+		StdOut.println("\nFace Value of " +  last + " is greater than 0 and less than 7  \" 0 < "+ last + " < 7 \"");
+		
+		assertTrue(last > 0 & last < 7);
+		assertEquals("Die: " + last,die1.toString());
+	}
+
 
 
 }

@@ -6,7 +6,7 @@ class TestNumberOfPlayer {
 	int NumPlayer = 1;
 	boolean booleaaIsTrue = false;
 	@Test
-	void test() {
+	public void numPlayertest() {
 		Player player = new Player();
 		player.setPlayernumber(NumPlayer);
 	
