@@ -1,4 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import org.junit.After;
+
 import edu.princeton.cs.introcs.StdOut;
 import org.junit.jupiter.api.Test;
 
@@ -49,4 +56,25 @@ class TurnTest {
 			}
 		}
 	}
+	
+	private final ByteArrayOutputStream outContent1 = new ByteArrayOutputStream();
+	@Test
+	public void out() throws IOException {
+		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	    System.setOut(new PrintStream(outContent));
+	    Turn t = new Turn();
+	    t.SkunkMsg();
+	    String n = outContent.toString();
+	    String s = "\n\t***** You rolled a Single-Skunk!!! *****" + System.getProperty("line.separator") + "\t***** You lose your turn and all TurnScore. *****" + System.getProperty("line.separator") + "\t***** You pay 1 chips to the kitty. *****" + System.getProperty("line.separator");
+	    assertEquals(s, n);
+	    outContent.reset();
+	    System.setOut(System.out);
+	}
+
+
+	@After
+	public void restoreStreams() {
+	   System.setOut(System.out);
+	}
+	
 }

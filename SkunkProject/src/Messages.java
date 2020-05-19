@@ -76,7 +76,7 @@ public interface Messages {
 	public String deuceSkunk3 = "\t***** You pay 2 chips to the kitty. *****";
 	public String singleSkunk1 = "\n\t***** You rolled a Single-Skunk!!! *****";
 	public String singleSkunk2 = "\t***** You lose your turn and all TurnScore. *****";
-	public String singleSkunk3 = "\t***** You pay 2 chips to the kitty. *****";
+	public String singleSkunk3 = "\t***** You pay 1 chips to the kitty. *****";
 	
 	
 	public static String UI(String message)
