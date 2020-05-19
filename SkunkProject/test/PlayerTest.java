@@ -30,5 +30,15 @@ class PlayerTest {
 		StdOut.println("\nexpectedName is: " + expectedName);
 		assertEquals(expectedName,playerName[0]);		
 	}
+	
+	@Test
+	public void Player_fine_maxScore() {
+		Player player = new Player();
+		player.setPlayernumber(3);
+		int[] total = {1,4,3};
+		int max = player.FindMaxScore(total);
+		assertEquals(4,max);		
+	}
+	
 
 }

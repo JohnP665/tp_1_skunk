@@ -9,9 +9,14 @@ public class Tournament extends Player{
 	static int round = 0;
 	public int plyNum;
 		
+	public Tournament(String Empty) {
+	
+	}
+	
 	public Tournament() {
 		player();
 		Tournement();	
+		
 	}
 	
 	public void Tournement () {
@@ -287,6 +292,18 @@ public class Tournament extends Player{
 		return maxScore;
 	}
 	
+	public int getround() {
+		/* Find maximum value */
+		 round = 0;
+		return round;
+		
+	}
+	
+	public void setround(int value) {
+		/* Find maximum value */
+		round = value;
+	}
+	
 	public void setTotal(int playerNum, int[] total, int value) {
 		total[playerNum] = value;
 	}
@@ -294,4 +311,5 @@ public class Tournament extends Player{
 	public int getTotal(int playerNum, int[] total) {
 		return total[playerNum];
 	}
+	
 }// End public class Tournament extends Player{

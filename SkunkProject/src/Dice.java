@@ -34,9 +34,9 @@ public class Dice {
 	public Dice(Die die1, Die die2) // overloaded constructor
 	{
 		this.die1 = die1;
-		this.die1.roll();
+//		this.die1.roll();
 		this.die2 = die2;
-		this.die2.roll();
+//		this.die2.roll();
 		this.lastRoll = die1.getDieLastRoll() + die2.getDieLastRoll();
 	}
 

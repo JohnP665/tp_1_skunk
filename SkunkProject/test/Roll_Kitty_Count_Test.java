@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.jupiter.api.Test;
 
 import edu.princeton.cs.introcs.StdOut;
@@ -7,11 +9,13 @@ import edu.princeton.cs.introcs.StdOut;
 class Roll_Kitty_Count_Test {
 
 	@Test
-	void test() {
+	void test() throws InterruptedException {
 	//	public void Kitty_Count_add_as_playerscore_decrease(){
 		int num = 0;
-		
+		TimeUnit.SECONDS.sleep(2);
 		Roll roll1 = new Roll();
+	    roll1.setKittyChipCounts(0);
+	    roll1.setChipCount(1,50);	
 		roll1.throwDice(1);
 		num = roll1.getRollScore();
 	    int kittychip = roll1.getKittyChipCounts();

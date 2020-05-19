@@ -16,11 +16,12 @@ public class Die {
 		this.roll();
 	}
 
-	public Die(int[] seqRolls) {
+	public Die(int seqRolls) {
 		// StdOut.println("Die(int[] seqRolls) object is constructed now.");
 		// predictable = true;
-		this.roll();
-		this.seqRoll = seqRolls;
+//		this.roll();
+		this.DielastRoll = seqRolls;
+	    RollType = 2;
 	}
 
 	public int getDieLastRoll() // getter or accessor method
@@ -34,13 +35,9 @@ public class Die {
 		if (RollType == 1) {
 			this.DielastRoll = (int) (Math.random() * 6 + 1);
 		} else {
-			if (seqRoll[i] < 6) {
-				i++;
-			} else {
-				i = 0;
+			this.DielastRoll = (int) (Math.random() * 6 + 1);
 			}
-			this.DielastRoll = seqRoll[i];
-		}
+
 	}
 
 	@Override

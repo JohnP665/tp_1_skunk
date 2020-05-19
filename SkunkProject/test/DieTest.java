@@ -71,4 +71,19 @@ class DieTest {
 		System.out.println("\n\t==> Random: outputs are Not the same in all trials!");
 
 	}
+	
+	@Test
+	public void die_predictable()
+	{
+//	    int[] seqRoll = new int[] { 1, 2, 3, 4, 5, 6 };
+		int num;		
+		Die die = new Die(2
+				);
+			num = die.getDieLastRoll();	
+			System.out.println("the num " + num);
+			assertTrue(num == 2);
+			
+		
+	}
+		
 }

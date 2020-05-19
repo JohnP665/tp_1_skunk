@@ -22,7 +22,7 @@ public class Turn extends Player{
 		boolean plyFlag = false;
 
 		while (true) {	
-			do { 
+			do {  
 				try {
 					setChoice(Messages.UI("").toLowerCase());
 					if(getChoice().equals("y") || getChoice().equals("n"))
